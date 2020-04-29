@@ -22,7 +22,7 @@ def login(path):
   with open(path, newline='') as f:
       reader = csv.reader(f)
       row1 = next(reader)  # gets the first line
-      r.login(row1[0],row1[1])
+      r.login(row1[0],row1[1], store_session=True)
 
 def getGoogleSheetsInfo(sheetName):
     scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -62,7 +62,7 @@ def main():
     server.ehlo()
     
     # Optional login for the receiving mail_server.
-    server.login ('user', 'pass')
+    server.login ('USER', 'PASS')
     
     messageBody = ""
     for stock in mylist: 
